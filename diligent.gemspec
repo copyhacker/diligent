@@ -1,3 +1,8 @@
+# -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+
+require 'diligent/version'
+
 Gem::Specification.new do |s|
   s.name        = 'diligent'
   s.version     = Diligent::VERSION.dup
