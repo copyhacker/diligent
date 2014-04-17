@@ -1,5 +1,6 @@
 diligent
 ========
+[![Build Status](https://secure.travis-ci.org/copyhacker/diligent.png?branch=master)](https://travis-ci.org/copyhacker/diligent)
 
 Comb your gems for licensing info and collate it nicely for the lawyers.
 
