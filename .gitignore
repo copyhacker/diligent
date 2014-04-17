@@ -1,6 +1,7 @@
 Gemfile.lock
 *.gem
 *.rbc
+.ruby-version
 .bundle
 .config
 coverage
