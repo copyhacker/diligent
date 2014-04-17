@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'diligent/cli'
+
+Diligent::CLI.start(ARGV)

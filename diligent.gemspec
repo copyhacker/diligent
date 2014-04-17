@@ -13,9 +13,12 @@ Gem::Specification.new do |s|
   s.authors     = [ "Jonathan Vaught" ]
   s.email       = 'jonathan.vaught@gmail.com'
   s.files       = `git ls-files`.split("\n")
+  s.executables   = [ "diligent" ]
   s.test_files  = `git ls-files -- spec/*`.split("\n")
   s.require_paths = [ "lib" ]
   s.homepage    =
     'https://github.com/copyhacker/diligent'
   s.license       = 'MIT'
+
+  s.add_runtime_dependency 'thor', '~> 0'
 end
