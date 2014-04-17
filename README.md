@@ -5,9 +5,10 @@ diligent
 
 Comb your gems for licensing info and collate it nicely for the lawyers.
 
+
 # TODO
 
-- [ ] Command line or rake task
+- [x] Command line or rake task
 - [ ] Run and parse `bundle list`
 - [ ] Hit rubygems and/or GitHub for info on each gem
 - [ ] Pull all that into a hash: name, version, owner, license type, link to license text
