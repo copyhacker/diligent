@@ -30,6 +30,7 @@ module Diligent
           'author'       => spec.author,
           'summary'      => spec.summary,
           'description'  => spec.description,
+          'license'      => spec.license,
           'homepage'     => spec.homepage
         }
 
@@ -48,7 +49,7 @@ module Diligent
       end
 
       csv = CSV.generate do |csv|
-        csv << %w{ Gem Version Author Summary Description Homepage }
+        csv << %w{ Gem Version Author Summary Description License Homepage }
         as_array.each { |row| csv << row }
       end
 
