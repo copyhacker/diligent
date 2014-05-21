@@ -7,5 +7,10 @@ module Diligent
     def legalese
       puts Diligent::Info.legalese
     end
+
+    desc 'list', 'List of gem information. JSON by default, or pass format option.'
+    def list
+      puts Diligent::List.load
+    end
   end
 end
