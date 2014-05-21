@@ -34,8 +34,6 @@ module Diligent
 
     def as_json(filename = nil)
       json = as_hash.to_json
-      # File.open(filename, 'w') { |f| f.write(json) } if filename
-      # json
       write_to_file filename, json
     end
 
@@ -54,10 +52,9 @@ module Diligent
         as_array.each { |row| csv << row }
       end
 
-      # File.open(filename, 'w') { |f| f.write(csv) } if filename
       write_to_file filename, csv
-      # csv
     end
+
 
   protected
 
