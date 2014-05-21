@@ -9,8 +9,19 @@ module Diligent
     end
 
     desc 'list', 'List of gem information. JSON by default, or pass format option.'
+    option :format
+    option :outfile
     def list
-      puts Diligent::List.load
+      list = Diligent::List.new
+
+      case (options[:format] || 'json')
+      when 'csv'
+        list.as_csv(options[:outfile] || './diligent.csv')
+      when 'json'
+        puts list.as_json(options[:outfile] || nil)
+      else
+        raise 'Only CSV and JSON are currently supported.'
+      end
     end
   end
 end

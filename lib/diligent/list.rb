@@ -1,4 +1,5 @@
 require 'csv'
+require 'json'
 
 module Diligent
   class List
@@ -14,13 +15,6 @@ module Diligent
     def initialize
       # TODO Optionally point at a different path?
       @specs = Bundler.load.specs
-
-
-
-      binding.pry
-
-
-
     end
 
     def as_hash
@@ -38,6 +32,13 @@ module Diligent
       end
     end
 
+    def as_json(filename = nil)
+      json = as_hash.to_json
+      # File.open(filename, 'w') { |f| f.write(json) } if filename
+      # json
+      write_to_file filename, json
+    end
+
     def as_csv(filename = nil)
       as_array = as_hash.inject([]) do |arr, gem_info|
         row = []
@@ -53,9 +54,16 @@ module Diligent
         as_array.each { |row| csv << row }
       end
 
-      File.open(filename, 'w') { |f| f.write(csv) } if filename
+      # File.open(filename, 'w') { |f| f.write(csv) } if filename
+      write_to_file filename, csv
+      # csv
+    end
 
-      csv
+  protected
+
+    def write_to_file(filename, content)
+      File.open(filename, 'w') { |f| f.write(content) } if filename
+      content
     end
   end
 end
