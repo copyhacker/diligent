@@ -4,8 +4,7 @@
   </head>
 
   <body>
-    <h1>Dependencies and licensing for project '<%= project_name %>' %>
-    </h1>
+    <h1>Dependencies and licensing for project '<%= project_name %>'</h1>
     <table>
       <tr>
         <th>Gem</th>
@@ -14,18 +13,15 @@
         <th>Summary</th>
         <th>Description</th>
         <th>License</th>
-        <th>Homepage</th>
       </tr>
 
       <% list.each do |gem_name, values| %>
         <tr id="<%= h gem_name %>">
-          <td><%= h gem_name %></td>
+          <td><a href="<%= values['homepage'] %>"><%= h gem_name %></a></td>
           <% values.each do |key, val| %>
             <td>
               <% case key
-              when 'homepage' %>
-                <a href="<%= val %>"><%= val %></a>
-              <% when 'license' %>
+              when 'license' %>
                 <%# TODO: Link to license text here %>
                 <a href="<%= Diligent::Info.license_text(val) %>"><%= val %></a>
               <% else %>
