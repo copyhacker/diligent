@@ -1,10 +1,12 @@
 require 'csv'
+require 'erb'
 require 'json'
 
 module Diligent
   class List
+    include ERB::Util # for html escaping
 
-    attr_accessor :specs
+    attr_accessor :project_name, :specs
 
     class << self
       def load
@@ -14,6 +16,8 @@ module Diligent
 
     def initialize
       # TODO Optionally point at a different path?
+
+      @project_name = File.split(FileUtils.getwd).last
       @specs = Bundler.load.specs
     end
 
@@ -55,6 +59,13 @@ module Diligent
       write_to_file filename, csv
     end
 
+    def as_html(filename = nil)
+      list = as_hash
+      template_path = File.join(File.dirname(__FILE__), '../../templates/list.html.erb')
+      html = ERB.new(File.read(template_path)).result(binding)
+
+      write_to_file filename, html
+    end
 
   protected
 

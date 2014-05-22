@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Project '<%= project_name %>'</title>
+  </head>
+
+  <body>
+    <h1>Dependencies and licensing for project '<%= project_name %>' %>
+    </h1>
+    <table>
+      <tr>
+        <th>Gem</th>
+        <th>Version</th>
+        <th>Author</th>
+        <th>Summary</th>
+        <th>Description</th>
+        <th>License</th>
+        <th>Homepage</th>
+      </tr>
+
+      <% list.each do |gem_name, values| %>
+        <tr id="<%= h gem_name %>">
+          <td><%= h gem_name %></td>
+          <% values.each do |key, val| %>
+            <td>
+              <% case key
+              when 'homepage' %>
+                <a href="<%= val %>"><%= val %></a>
+              <% when 'license' %>
+                <%# TODO: Link to license text here %>
+                <a href="<%= Diligent::Info.license_text(val) %>"><%= val %></a>
+              <% else %>
+                <%= h val %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
