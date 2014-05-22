@@ -19,8 +19,10 @@ module Diligent
         list.as_csv(options[:outfile] || './diligent.csv')
       when 'json'
         puts list.as_json(options[:outfile] || nil)
+      when 'html'
+        list.as_html(options[:outfile] || './diligent.html')
       else
-        raise 'Only CSV and JSON are currently supported.'
+        raise 'Only CSV, HTML and JSON are currently supported.'
       end
     end
   end

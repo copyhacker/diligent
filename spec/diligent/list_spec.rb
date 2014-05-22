@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'csv'
+require 'nokogiri'
 
 describe Diligent::List do
   before { @list = Diligent::List.load }
@@ -11,7 +12,6 @@ describe Diligent::List do
   end
 
   context '#as_csv' do
-    before { @csv = Diligent::List.new.as_csv }
     after { FileUtils.rm('/tmp/diligent.csv') if File.exists?('/tmp/diligent.csv') }
 
     it 'should put the list in CSV format' do
@@ -24,10 +24,31 @@ describe Diligent::List do
       check_csv_content CSV.read('/tmp/diligent.csv')
     end
   end
+
+  context '#as_html' do
+    after { FileUtils.rm('/tmp/diligent.html') if File.exists?('/tmp/diligent.html') }
+
+    it 'should put the list in HTML format' do
+      @html = Diligent::List.new.as_html
+      check_html_content @html
+    end
+  end
 end
 
 # FIXME: Brittle
 def check_csv_content(csv_rows)
   expect(csv_rows.first).to eq(%w{ Gem Version Author Summary Description License Homepage })
   expect(csv_rows[1].first).to eq ('awesome_print')
+end
+
+def check_html_content(html)
+  Nokogiri::HTML(html).tap do |doc|
+    # Nokogiri is too picky for this to work
+    # expect(doc.errors).to be_empty
+
+    expect(doc.children.first.name).to eq('html')
+
+    # Too brittle, again
+    # expect(doc.at('table').children[1].children.first.text).to eq('awesome_print')
+  end
 end
