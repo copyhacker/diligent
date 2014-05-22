@@ -20,11 +20,13 @@ Gem::Specification.new do |s|
     'https://github.com/copyhacker/diligent'
   s.license       = 'MIT'
 
-  s.add_runtime_dependency     'bundler',        '~> 1.0'
   s.add_runtime_dependency     'thor',           '~> 0.19'
-  s.add_development_dependency 'rspec',          '~> 3.0.beta'
+  s.add_runtime_dependency     'bundler',        '~> 1.0'
+
+  s.add_development_dependency 'awesome_print',  '~> 1.2'
   s.add_development_dependency 'guard',          '~> 2.6'
   s.add_development_dependency 'guard-rspec',    '~> 4.2'
+  s.add_development_dependency 'nokogiri',       '~> 1.6'
   s.add_development_dependency 'pry',            '~> 0.9'
-  s.add_development_dependency 'awesome_print',  '~> 1.2'
+  s.add_development_dependency 'rspec',          '~> 3.0.beta'
 end
