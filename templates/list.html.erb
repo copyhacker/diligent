@@ -59,7 +59,6 @@
         <th>Summary</th>
         <th>Description</th>
         <th>License</th>
-        <th></th>
       </tr>
 
       <% list.each do |gem_name, values| %>
@@ -69,8 +68,8 @@
             <td class="<%= key %>">
               <% case key
               when 'license' %>
-                <%# TODO: Link to license text here %>
                 <a href="<%= Diligent::Info.license_text(val) %>"><%= val %></a>
+              <% when 'homepage' #NOP %>
               <% else %>
                 <%= h val %>
               <% end %>
