@@ -38,7 +38,7 @@ end
 # FIXME: Brittle
 def check_csv_content(csv_rows)
   expect(csv_rows.first).to eq(%w{ Gem Version Author Summary Description License Homepage })
-  expect(csv_rows[1].first).to eq ('addressable')
+  expect(csv_rows[1].first).to eq ('awesome_print')
 end
 
 def check_html_content(html)
