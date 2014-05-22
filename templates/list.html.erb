@@ -13,8 +13,16 @@
       }
       h1 {
         font-weight: 300;
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 36px;
+        line-height: 46px;
+        margin: 0;
+      }
+      h2 {
+        color: #999;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 30px;
+        margin: 0 0 30px;
       }
       table {
         border-collapse: collapse;
@@ -50,7 +58,8 @@
   </head>
 
   <body>
-    <h1>Dependencies and licensing for project '<%= project_name %>'</h1>
+    <h1><%= project_name %></h1>
+    <h2>Dependencies and licensing compiled automagically by <a href="https://github.com/copyhacker/diligent">Diligent</a></h2>
     <table>
       <tr>
         <th>Gem</th>
