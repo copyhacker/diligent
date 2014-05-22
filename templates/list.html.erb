@@ -69,9 +69,11 @@
               <% case key
               when 'license' %>
                 <a href="<%= Diligent::Info.license_text(val) %>"><%= val %></a>
+              <% when 'summary', 'description' %>
+                <p><%= h val %></p>
               <% when 'homepage' #NOP %>
               <% else %>
-                <p><%= h val %></p>
+                <%= h val %>
               <% end %>
             </td>
           <% end %>
