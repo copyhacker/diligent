@@ -13,7 +13,16 @@ Comb your gems for licensing info and collate it nicely for the lawyers.
 - [x] Hit rubygems and/or GitHub for info on each gem
 - [x] Pull all that into a hash: name, version, owner, license type
 - [x] Link to license text
-- [ ] Output options
+- [X] Output options
   - [x] JSON
-  - [ ] HTML
+  - [X] HTML
   - [x] CSV
+- Documentation
+
+# Author
+
+- [Jonathan Vaught](http://github.com/copyhacker)
+
+# Contributors
+
+- [Brian Nelson](http://github.com/briannelsondesign)
