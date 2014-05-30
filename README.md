@@ -20,7 +20,7 @@ The following examples were run in the `diligent` project root.
 
 `diligent list`
 
-`diligent list --format json --output diligent.json`
+`diligent list --format json --outfile diligent.json`
 
 Returns:
 
