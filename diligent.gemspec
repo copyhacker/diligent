@@ -28,5 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard-rspec',    '~> 4.2'
   s.add_development_dependency 'nokogiri',       '~> 1.6'
   s.add_development_dependency 'pry',            '~> 0.9'
-  s.add_development_dependency 'rspec',          '~> 3.0.beta'
+  s.add_development_dependency 'rspec',          '~> 3.0'
 end
